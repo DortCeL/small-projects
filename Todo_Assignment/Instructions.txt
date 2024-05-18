@@ -1,0 +1,33 @@
+Assignment: Interactive To-Do List
+
+#Objective:
+Create an interactive to-do list web application using HTML, CSS, and JavaScript.
+
+#Requirements:
+Display an input field and a button to add new tasks.
+When the user enters a task and clicks the button, add the task to a list displayed on the webpage.
+Each task in the list should have a checkbox or button to mark it as completed.
+Include functionality to delete individual tasks from the list.
+Implement a "Clear All" button to remove all tasks from the list.
+Use CSS to style the to-do list and make it visually appealing.
+Ensure that the application is responsive and works well on different screen sizes.
+
+
+Bonus Features (optional):
+Add local storage functionality to save tasks even after the browser is closed.
+Implement drag-and-drop functionality to reorder tasks within the list.
+Allow users to edit tasks directly in the list.
+
+Instructions:
+Set up the basic HTML structure for the to-do list application.
+Write CSS to style the elements and make the application visually appealing.
+Use JavaScript to implement the functionality described in the requirements.
+Test the application to ensure that all features work as expected.
+
+Upload the project to github
+Deploy the project in vercel
+
+*****Update the excel sheet provided by your CR and fillup your name, roll, github link, vercel link there
+
+Submission:
+You will have to update the excel sheet. The CR will submit the excel sheet on Last Friday before your next lab

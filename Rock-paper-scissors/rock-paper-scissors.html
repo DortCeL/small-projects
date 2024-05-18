@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Website hahah</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 26px;
+            color: white;
+            background: black;
+        }
+
+        #box {
+            color: white;
+        
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        button {
+            padding: 30px;
+            text-align: center;
+            background-color: red;
+            color: white;
+            font-size: 30px;
+            margin: 30px 20px;
+            border-radius: 20px;
+            font-family: cursive;
+        }
+        
+        button:hover {
+            background: yellow;
+            color : black;
+        }
+
+        h2 {
+            text-align: center;
+            margin : 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Rock-Paper-Scissors</h2>
+
+    <div class="buttons">
+        <button onclick="simulate('rock')">Rock</button>
+        <button onclick="simulate('paper')">Paper</button>
+        <button onclick="simulate('scissors')">Scissors</button>
+        <button onclick="score.wins=0; score.losses=0; score.ties=0; localStorage.setItem('score', JSON.stringify(score));">Reset Scores</button>
+
+        <p id="box"></p>
+    </div>
+    
+
+    <script>
+
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            wins : 0, losses : 0, ties : 0
+        }; // getting the score object from local storage
+
+        function simulate(myMove) {
+            let cpuMove;
+            let result;
+
+            const rand = Math.random();
+            if (rand>=0 && rand<1/3)
+                cpuMove = 'rock';
+            else if (rand>=1/3 && rand<2/3)
+                cpuMove = 'paper';
+            else 
+                cpuMove = 'scissors';
+
+            if (myMove === 'rock') {
+                if (cpuMove === 'rock')
+                    result = `It's a tie!`;
+                else if (cpuMove === 'paper')
+                    result = `You Lose!`;
+                else 
+                    result = `You Win!`;
+            }
+            else if (myMove === 'paper') {
+                if (cpuMove === 'paper')
+                    result = `It's a tie!`;
+                else if (cpuMove === 'scissors')
+                    result = `You Lose!`;
+                else 
+                    result = `You Win!`;
+            }
+            else if (myMove === 'scissors') {
+                if (cpuMove === 'scissors')
+                    result = `It's a tie!`;
+                else if (cpuMove === 'rock')
+                    result = `You Lose!`;
+                else 
+                    result = `You Win!`;
+            }
+            
+            if (result === 'You Win!')
+                score.wins++;
+            else if (result === `It's a tie!`)
+                score.ties++;
+            else if (result === 'You Lose!')
+                score.losses++;
+
+            localStorage.setItem('score', JSON.stringify(score));   // saving the score values in local storage
+
+            // alert(`CPU picked ${cpuMove}. ${result}
+            //         Wins : ${score.wins}, Losses : ${score.losses}, Ties : ${score.ties}`);
+
+
+            document.getElementsById("box").innerHTML = "`CPU picked ${cpuMove}. ${result} Wins : ${score.wins}, Losses : ${score.losses}, Ties : ${score.ties}`";
+
+        }
+
+    </script>
+</body>
+</html>
