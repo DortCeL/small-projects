@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", loadTodos);
-
 const box = document.getElementById("box");
 const todoInput = document.getElementById("inputBox");
 const addTodoBtn = document.querySelector("#addTodoBtn");
@@ -12,56 +10,36 @@ todoInput.addEventListener("keyup", (event) => {
 });
 clearAllBtn.addEventListener("click", clearTodo);
 
-function loadTodos() {
-  const todos = JSON.parse(localStorage.getItem("todos")) || [];
-  todos.forEach((todoText) => {
-    addTodoElement(todoText);
-  });
-}
-
-function saveTodos() {
-  const todos = [];
-  document.querySelectorAll("#list li span").forEach((span) => {
-    todos.push(span.textContent);
-  });
-  localStorage.setItem("todos", JSON.stringify(todos));
-}
-
 function addTodo() {
   let todoText = todoInput.value.trim();
   todoText = todoText.charAt(0).toUpperCase() + todoText.slice(1);
 
   if (todoText !== "") {
-    addTodoElement(todoText);
-    saveTodos();
+    const li = document.createElement("li");
+
+    const span = document.createElement("span");
+    span.textContent = todoText;
+
+    const buttonsDiv = createButtonsDiv();
+
+    li.addEventListener("click", (e) => {
+      if (e.target.tagName !== "BUTTON") {
+        e.target.classList.toggle("done");
+      }
+    });
+
     todoInput.value = "";
+
+    li.appendChild(span);
+    li.appendChild(buttonsDiv);
+    todoList.appendChild(li);
   }
-}
-
-function addTodoElement(todoText) {
-  const li = document.createElement("li");
-
-  const span = document.createElement("span");
-  span.textContent = todoText;
-
-  const buttonsDiv = createButtonsDiv();
-
-  li.addEventListener("click", (e) => {
-    if (e.target.tagName !== "BUTTON") {
-      e.target.classList.toggle("done");
-    }
-  });
-
-  li.appendChild(span);
-  li.appendChild(buttonsDiv);
-  todoList.appendChild(li);
 }
 
 function clearTodo() {
   while (todoList.firstChild) {
     todoList.removeChild(todoList.firstChild);
   }
-  localStorage.removeItem("todos");
 }
 
 function createButtonsDiv() {
@@ -125,11 +103,9 @@ function saveChanges(input, li) {
     li.innerHTML = "";
     li.appendChild(span);
     li.appendChild(buttonsDiv);
-    saveTodos();
   }
 }
 
 function deleteTodo() {
   this.parentElement.parentElement.remove();
-  saveTodos();
 }
