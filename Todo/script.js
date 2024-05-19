@@ -5,10 +5,10 @@ const clearAllBtn = document.querySelector("#clearAllBtn");
 const todoList = document.getElementById("list");
 
 addTodoBtn.addEventListener("click", addTodo);
-clearAllBtn.addEventListener("click", clearTodo);
 todoInput.addEventListener("keyup", (event) => {
   if (event.key === "Enter") addTodo();
 });
+clearAllBtn.addEventListener("click", clearTodo);
 
 function addTodo() {
   let todoText = todoInput.value.trim();

@@ -130,12 +130,13 @@ h2 {
 }
 
 li span {
-  display: inline-block; /* or 'block' */
-  word-wrap: break-word; /* Ensures long words break onto the next line */
-  word-break: break-all; /* Breaks long continuous texts */
+  display: inline-block;
+  overflow-wrap: break-word;
+  word-break: normal;
+  overflow: hidden;
+  /*! Space chara lomba sentence input dile oita break korte pare na! idk how to solve this... */
 
   font-weight: 300;
-  letter-spacing: 1.5px;
 
   display: flex;
   align-items: center;
@@ -145,7 +146,7 @@ li span {
   padding-left: 16px;
 
   background: #54933c;
-  color: white;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   border-radius: 22.5px;
 
