@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", cursive;
+  font-family: "Philosopher", Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -29,12 +31,21 @@ body {
 
 h2 {
   width: 100%;
-  margin-bottom: 10px;
 
   font-weight: 600;
   text-align: center;
   color: #fff;
-  font-size: 1.75rem;
+  font-size: 2.5rem;
+}
+
+#box p {
+  width: 100%;
+  margin-bottom: 20px;
+
+  font-weight: 100;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.86rem;
 }
 
 .header-buttons {
@@ -98,8 +109,14 @@ h2 {
 #addTodoBtn:active {
   opacity: 90%;
 }
+#addTodoBtn:hover {
+  opacity: 90%;
+}
 #clearAllBtn:active {
   opacity: 90%;
+}
+#clearAllBtn:hover {
+  opacity: 95%;
 }
 
 #box li {
@@ -117,6 +134,9 @@ li span {
   word-wrap: break-word; /* Ensures long words break onto the next line */
   word-break: break-all; /* Breaks long continuous texts */
 
+  font-weight: 300;
+  letter-spacing: 1.5px;
+
   display: flex;
   align-items: center;
   min-height: 45px;
@@ -124,7 +144,7 @@ li span {
   padding: 12px;
   padding-left: 16px;
 
-  background: #1f83f2;
+  background: #54933c;
   color: white;
   cursor: pointer;
   border-radius: 22.5px;
@@ -133,8 +153,12 @@ li span {
     inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -3px -3px 5px rgba(0, 0, 0, 0.5);
 }
 
+li span:hover {
+  background: #629a4c;
+}
+
 li span:active {
-  background: #1f94ff;
+  opacity: 90%;
 }
 
 .editBox {
@@ -151,9 +175,8 @@ li span:active {
   min-height: 45px;
   width: 100%;
 
-  background: #1f83f2;
-  color: white;
-  cursor: pointer;
+  background: #66af49;
+  color: rgb(24, 25, 22);
   border-radius: 22.5px;
 
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
