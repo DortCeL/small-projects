@@ -1,0 +1,38 @@
+* {
+    margin: 0px;
+    padding: 0px; 
+}
+.box {
+    width: 586px;
+    height: 284px;
+    margin: 256px auto 0px;
+}
+.box img {
+    display: block;
+    margin: auto;
+}
+.box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin: 20px 0px;
+}
+.box .buttons{
+    text-align: center;
+}
+.box .buttons button{
+    padding: 8px;
+    margin: 7px 7px 20px;
+    border: 1px solid #ccc;
+}
+.box p {
+    text-align: center;
+}
+.box p a {
+    text-decoration: none;
+}
+.box p a:hover {
+    text-decoration: underline;
+}
